@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorenzo Sormani - CV</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .animate-slideIn {
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .animate-scaleIn {
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .particle-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .progress-bar {
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: #3B82F6;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -0.5rem;
+            top: 0;
+            height: 1rem;
+            width: 1rem;
+            border-radius: 50%;
+            background: #3B82F6;
+        }
+        
+        .hover-card {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .skill-progress {
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .particle-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .progress-bar {
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .hover-card {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .skill-progress {
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            .hover-card:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div id="particles-js" class="particle-bg"></div>
+
+    <!-- Header/Hero Section - Responsive -->
+    <header class="min-h-screen flex items-center justify-center relative px-4">
+        <div class="text-center animate-fadeInUp">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 text-blue-600">Lorenzo Sormani</h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-8 typing-text"></p>
+            <a href="curriculum.pdf" download class="bg-blue-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-full hover:bg-blue-700 transition duration-300 text-sm md:text-base">
+                <i class="fas fa-download mr-2"></i>Scarica CV
+            </a>
+        </div>
+    </header>
+
+    <!-- Chi Sono Section - Responsive -->
+    <section id="chi-sono" class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 animate-fadeInUp">Chi Sono</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="w-full md:w-1/3 mb-8 md:mb-0 animate-scaleIn">
+                    <img src="image/lorenzo.png" alt="Lorenzo Sormani" class="rounded-full mx-auto shadow-lg w-48 md:w-64">
+                </div>
+                <div class="w-full md:w-2/3 md:pl-12">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                        <div class="hover-card p-3 md:p-4 bg-gray-50 rounded-lg animate-fadeInUp">
+                            <i class="fas fa-user text-blue-600 text-xl mb-2"></i>
+                            <h3 class="font-semibold text-sm md:text-base">Nome</h3>
+                            <p class="text-sm md:text-base">Lorenzo Sormani</p>
+                        </div>
+                        <div class="hover-card p-4 bg-gray-50 rounded-lg animate-fadeInUp" style="animation-delay: 0.4s">
+                            <i class="fas fa-calendar text-blue-600 text-xl mb-2"></i>
+                            <h3 class="font-semibold">Data di nascita</h3>
+                            <p>28-05-2004</p>
+                        </div>
+                        <div class="hover-card p-4 bg-gray-50 rounded-lg animate-fadeInUp" style="animation-delay: 0.6s">
+                            <i class="fas fa-envelope text-blue-600 text-xl mb-2"></i>
+                            <h3 class="font-semibold">Email</h3>
+                            <p>Sormani.lavoro@gmail.com</p>
+                        </div>
+                        <div class="hover-card p-4 bg-gray-50 rounded-lg animate-fadeInUp" style="animation-delay: 0.8s">
+                            <i class="fas fa-phone text-blue-600 text-xl mb-2"></i>
+                            <h3 class="font-semibold">Telefono</h3>
+                            <p>+39 342 1994692</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formazione Section - Responsive -->
+    <section id="formazione" class="py-12 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 animate-fadeInUp">Formazione</h2>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="hover-card bg-white p-4 md:p-6 rounded-lg shadow-lg animate-slideIn">
+                    <div class="flex flex-col md:flex-row md:items-center mb-4">
+                        <i class="fas fa-graduation-cap text-blue-600 text-2xl mb-2 md:mb-0 md:mr-4"></i>
+                        <div>
+                            <h3 class="text-lg md:text-xl font-bold">Artademia</h3>
+                            <p class="text-gray-600">2019 - 2022</p>
+                        </div>
+                    </div>
+                    <div class="ml-12">
+                        <h4 class="font-semibold mb-2">Principali corsi frequentati:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                ADOBE: Utilizzo di programmi per editing video e foto
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                HTML: Programmazione e utilizzo linguaggio html base
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                EDUCAZIONE CINOFILA: Addestramento cani da caccia e cani pastore
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                CUCINA PASTICCERIA: Con lezioni tenute da chef stellati
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                APICOLTURA
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="hover-card bg-white p-6 rounded-lg shadow-lg animate-slideIn">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-certificate text-blue-600 text-2xl mr-4"></i>
+                        <div>
+                            <h3 class="text-xl font-bold">Certificazioni</h3>
+                            <p class="text-gray-600">2023</p>
+                        </div>
+                    </div>
+                    <div class="ml-12 space-y-4">
+                        <div>
+                            <p class="font-semibold">Formazione salute e sicurezza generale</p>
+                            <p class="text-gray-600">D.LGS 81/2008 acc. Stato-Regioni 21/12/2011</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold">Addetto al trasporto sanitario con abilitazione DAE</p>
+                            <p class="text-gray-600">42 ore - CeFRA ANPAS Lombardia AVIS Meda</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold">Addetto al trasporto sanitario - Mod J</p>
+                            <p class="text-gray-600">4 ore - CeFRA ANPAS Lombardia AVIS Meda</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Esperienza Section -->
+    <section id="esperienza" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 animate-fadeInUp">Esperienza Lavorativa</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover-card">
+                        <h3 class="text-xl font-bold text-blue-600">ANPAS Lombardia presso AVIS Meda</h3>
+                        <p class="text-gray-600 mb-2">Maggio 2023 - Maggio 2024</p>
+                        <p>Servizio Civile Universale - Trasporto disabili e viaggi extraospedalieri</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover-card">
+                        <h3 class="text-xl font-bold text-blue-600">La Brughiera - Meda</h3>
+                        <p class="text-gray-600 mb-2">Giugno - Luglio 2021</p>
+                        <p>Collaboratore agricolo presso Onlus</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competenze Section - Responsive -->
+    <section id="competenze" class="py-12 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 animate-fadeInUp">Competenze Informatiche</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+                <div class="hover-card bg-white p-4 md:p-6 rounded-lg shadow-lg">
+                    <h3 class="font-bold mb-4 text-lg">Sistemi Operativi</h3>
+                    <div class="space-y-4">
+                        <!-- Skills bars con padding ottimizzato -->
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm md:text-base">
+                                <span>Windows (98 - 11)</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Commodore 64</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full skill-progress" data-progress="70"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hover-card bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="font-bold mb-4">Suite Adobe</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Photoshop</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>After Effects</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full skill-progress" data-progress="65"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Illustrator</span>
+                                <span>30%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full skill-progress" data-progress="30"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hover-card bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="font-bold mb-4">Pacchetto Office</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Word</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Excel</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>PowerPoint</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lingue Section -->
+    <section id="lingue" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 animate-fadeInUp">Competenze Linguistiche</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="hover-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-flag text-blue-600 mr-2"></i>
+                        <h3 class="font-bold">Italiano</h3>
+                    </div>
+                    <div class="bg-gray-200 rounded-full h-2.5 mb-2">
+                        <div class="bg-blue-600 h-2.5 rounded-full skill-progress" data-progress="100"></div>
+                    </div>
+                    <p class="text-center">Madrelingua</p>
+                </div>
+                <div class="hover-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-flag-usa text-blue-600 mr-2"></i>
+                        <h3 class="font-bold">Inglese</h3>
+                    </div>
+                    <div class="bg-gray-200 rounded-full h-2.5 mb-2">
+                        <div class="bg-blue-600 h-2.5 rounded-full skill-progress" data-progress="40"></div>
+                    </div>
+                    <p class="text-center">B1 (Intermedio)</p>
+                </div>
+                <div class="hover-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-flag text-blue-600 mr-2"></i>
+                        <h3 class="font-bold">Spagnolo</h3>
+                    </div>
+                    <div class="bg-gray-200 rounded-full h-2.5 mb-2">
+                        <div class="bg-blue-600 h-2.5 rounded-full skill-progress" data-progress="40"></div>
+                    </div>
+                    <p class="text-center">B1 (Intermedio)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extra Section -->
+    <section id="extra" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 animate-fadeInUp">Attività Volontariato</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="hover-card bg-white p-6 rounded-lg shadow-lg animate-scaleIn">
+                    <i class="fas fa-theater-masks text-blue-600 text-3xl mb-4"></i>
+                    <h3 class="font-bold mb-2">Cinema Teatro S. Rocco</h3>
+                    <p>Operatore cinematografico, barista, tecnico palcoscenico</p>
+                </div>
+                <div class="hover-card bg-white p-6 rounded-lg shadow-lg animate-scaleIn" style="animation-delay: 0.2s">
+                    <i class="fas fa-hand-holding-heart text-blue-600 text-3xl mb-4"></i>
+                    <h3 class="font-bold mb-2">AVIS Meda</h3>
+                    <p>Volontario soccorritore e donatore di sangue</p>
+                </div>
+                <div class="hover-card bg-white p-6 rounded-lg shadow-lg animate-scaleIn" style="animation-delay: 0.4s">
+                    <i class="fas fa-fire text-blue-600 text-3xl mb-4"></i>
+                    <h3 class="font-bold mb-2">Pompiere Volontario</h3>
+                    <p>In attesa del corso</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gaming & Community Section - Responsive -->
+    <section id="gaming" class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 animate-fadeInUp">Gaming & Community Management</h2>
+            <div class="max-w-4xl mx-auto mb-8 md:mb-12">
+                <div class="hover-card bg-gradient-to-r from-purple-600 to-blue-600 p-1 rounded-lg animate-scaleIn">
+                    <div class="bg-white p-4 md:p-6 rounded-lg">
+                        <div class="flex flex-col md:flex-row items-center mb-4">
+                            <i class="fab fa-discord text-purple-600 text-3xl md:text-4xl mb-2 md:mb-0 md:mr-4"></i>
+                            <div class="text-center md:text-left">
+                                <h3 class="text-xl md:text-2xl font-bold text-purple-600">M4D for Games</h3>
+                                <p class="text-gray-600">Community Staff Member</p>
+                            </div>
+                        </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-users text-blue-600 mr-2"></i>
+                                    <span>65,000+ membri attivi</span>
+                                </div>
+                                <div class="bg-gray-100 p-4 rounded-lg">
+                                    <h4 class="font-semibold mb-2">Responsabilità principali:</h4>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-shield-alt text-green-500 mr-2"></i>
+                                            Moderazione delle attività del server
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-comments text-green-500 mr-2"></i>
+                                            Gestione delle discussioni e supporto alla community
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-user-shield text-green-500 mr-2"></i>
+                                            Monitoraggio del rispetto delle regole del server
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Gaming Skills Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="hover-card bg-white p-6 rounded-lg shadow-lg animate-scaleIn">
+                        <i class="fas fa-headset text-blue-600 text-3xl mb-4"></i>
+                        <h3 class="font-bold mb-2">Community Management</h3>
+                        <div class="space-y-2">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Moderazione</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-blue-600 h-2.5 rounded-full skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Gestione Conflitti</span>
+                                    <span>60%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-blue-600 h-2.5 rounded-full skill-progress" data-progress="60"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="hover-card bg-white p-6 rounded-lg shadow-lg animate-scaleIn" style="animation-delay: 0.2s">
+                        <i class="fas fa-gamepad text-blue-600 text-3xl mb-4"></i>
+                        <h3 class="font-bold mb-2">Gaming Experience</h3>
+                        <p class="text-gray-600 mb-4">Appassionato di videogiochi con esperienza in diverse piattaforme e generi</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">PC Gaming</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Console</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Multiplayer</span>
+                        </div>
+                    </div>
+    
+                    <div class="hover-card bg-white p-6 rounded-lg shadow-lg animate-scaleIn" style="animation-delay: 0.4s">
+                        <i class="fas fa-users-cog text-blue-600 text-3xl mb-4"></i>
+                        <h3 class="font-bold mb-2">Server Management</h3>
+                        <div class="space-y-2">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Discord Admin</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-blue-600 h-2.5 rounded-full skill-progress" data-progress="100"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Community Building</span>
+                                    <span>40%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-blue-600 h-2.5 rounded-full skill-progress" data-progress="40"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <script>
+        // Inizializzazione particles.js
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                value: window.innerWidth < 768 ? 40 : 80,  // Riduce le particelle su mobile
+                density: { enable: true, value_area: 800 },
+                color: { value: "#3B82F6" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#3B82F6", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+
+        // Animazione testo typing
+        const text = "Sviluppatore Web & Volontario Avis Meda";
+        let index = 0;
+        const typingText = document.querySelector(".typing-text");
+
+        function typeText() {
+            if (index < text.length) {
+                typingText.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeText, 100);
+            }
+        }
+        typeText();
+
+        // Animazione progress bar al scroll
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.skill-progress');
+            progressBars.forEach(bar => {
+                const progress = bar.getAttribute('data-progress');
+                bar.style.width = progress + '%';
+            });
+        }
+
+        // Animazione timeline items al scroll
+        function animateTimelineItems() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top <= window.innerHeight * 0.8) {
+                    item.classList.add('visible');
+                }
+            });
+        }
+
+        // Observer per le animazioni scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('skill-progress')) {
+                        entry.target.style.width = entry.target.getAttribute('data-progress') + '%';
+                    }
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Osserva tutti gli elementi animabili
+        document.querySelectorAll('.skill-progress, .timeline-item, .animate-fadeInUp, .animate-slideIn, .animate-scaleIn').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Event listener per scroll
+        window.addEventListener('scroll', () => {
+            animateTimelineItems();
+        });
+
+        // Inizializzazione animazioni al caricamento
+        document.addEventListener('DOMContentLoaded', () => {
+            animateProgressBars();
+            animateTimelineItems();
+        });
+    </script>
+</body>
+</html>
